@@ -1,6 +1,5 @@
 package Stats;
 
-import vAlpha1.*;
 import java.awt.BorderLayout;
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -10,11 +10,11 @@ public class PanStats extends JPanel // panel definition
 {
     //PanDisp panDisp;
     //String sName;
-    private JLabel Player1Lives;
-    private JLabel Player2Lives;
-    private JLabel Player1Score;
-    private JLabel Player2Score;
-    int nPlayer1Lives = 4, nPlayer2Lives = 5, nPlayer1Score = 750,nPlayer2Score = 1750, nTimeMin = 1, nTimeSec = 15;
+    public JLabel Player1Lives;
+    public JLabel Player2Lives;
+    public JLabel Player1Score;
+    public JLabel Player2Score;
+    public int nPlayer1Lives = 5, nPlayer2Lives = 5, nPlayer1Score = 0,nPlayer2Score = 0, nTimeMin = 0, nTimeSec = 00;
     
     private JLabel Timer;
 
