@@ -9,8 +9,6 @@ public class PanDisp extends JPanel // panel definition
 {
     PanGame panGame = new PanGame();
     public PanDisp() {
-        JButton btn1 = new JButton("Start");
-        add(btn1);
         setLayout(new BorderLayout());
         add(panGame, BorderLayout.CENTER);
         //lblName = new JLabel(" Barney");

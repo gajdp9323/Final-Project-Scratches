@@ -16,7 +16,8 @@ public class PanGame extends JPanel // panel definition
     
     public PanGame() {
         //add(lblName); //add it to the Frame
-        
+        JButton btn1 = new JButton("Start");
+        add(btn1);
     }
     public void paint(Graphics g)
     {
