@@ -22,17 +22,6 @@ public class PanStats extends JPanel // panel definition
     public PanStats(PanDisp _panDisp) {
         revalidate();
         repaint();
-        new Timer1();
-        if (nTimeSec == 59) {
-            nTimeMin++;
-            nPlayer1Score+=50;
-            nPlayer2Score+=50;
-        }
-        else {
-            nTimeSec++;
-            nPlayer1Score+=50;
-            nPlayer2Score+=50;
-        }
         setBackground(Color.red);
         Player1Lives = new JLabel(" Player1 Lives: "+ nPlayer1Lives);
         Player1Score = new JLabel(" Player1 Score: "+ nPlayer1Score);
@@ -44,22 +33,16 @@ public class PanStats extends JPanel // panel definition
         add(Timer);
         add(Player2Score);
         add(Player2Lives);
-    }
-       /* public static void Time(int arnTimeStuffValues[]){
-    
-        try {
-            Thread.sleep(1000);
-        } catch(InterruptedException ie) {
-            if (arnTimeStuffValues[1] == 59) {
-                arnTimeStuffValues[2]++;
-                arnTimeStuffValues[3]+=50;
-                arnTimeStuffValues[4]+=50;
-            }
-            else {
-                arnTimeStuffValues[1]++;
-                arnTimeStuffValues[3]+=50;
-                arnTimeStuffValues[4]+=50;
-            }
+        new Timer1();
+        if (nTimeSec == 59) {
+            nTimeMin++;
+            nPlayer1Score+=50;
+            nPlayer2Score+=50;
         }
-    }*/
+        else {
+            nTimeSec++;
+            nPlayer1Score+=50;
+            nPlayer2Score+=50;
+        }
+    }
 }

@@ -14,7 +14,7 @@ public class FraMain extends JFrame {
         setSize(600, 400);
         setTitle("Space Battle (By: Philip G. and Samuel M.)");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(600, 400));
+        setMinimumSize(new Dimension(640, 360));
         setMaximumSize(new Dimension(800, 800));
         add(panMain);
         setVisible(true);

@@ -11,7 +11,7 @@ import javax.swing.*;
  *
  * @author gajdp9323
  */
-public class Bullet{
+public class Bullet extends JPanel{
     int nX = 100;
     int nY = 100;
     //final BufferedImage imgBulletSide = ImageIO.read(new File("BulletSide.png"));
@@ -20,6 +20,9 @@ public class Bullet{
     Image imgBulletUp = Toolkit.getDefaultToolkit().createImage("BulletUp.png");
     
     public void paint(Graphics g) {
+        revalidate();
+        repaint();
+        //draws images
         g.drawImage(imgBulletSide, nX, nY, null);
         g.drawImage(imgBulletUp, nX, nY, null);
     }
