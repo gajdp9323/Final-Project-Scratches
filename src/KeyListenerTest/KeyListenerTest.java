@@ -1,3 +1,5 @@
+package KeyListenerTest;
+
 //Philip G
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -5,12 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class KeyListenerTester extends JFrame implements KeyListener {
+class KeyListenerTester extends JFrame implements KeyListener {
 
     JLabel label;
 
     public KeyListenerTester(String s) {
-        super(s);
         JPanel p = new JPanel();
         label = new JLabel("Key Listener!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,6 +56,18 @@ public class KeyListenerTester extends JFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("Down key pressed");
         }
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            System.out.println("W key pressed");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            System.out.println("A key pressed");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_S) {
+            System.out.println("S key pressed");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            System.out.println("D key pressed");
+        }
 
     }
 
@@ -72,8 +85,19 @@ public class KeyListenerTester extends JFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("Down key Released");
         }
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            System.out.println("W key Released");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            System.out.println("A key Released");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_S) {
+            System.out.println("S key Released");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            System.out.println("D key Released");
+        }
     }
-
     public static void main(String[] args) {
         new KeyListenerTester("Key Listener Tester");
     }

@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class PanDisp extends JPanel // panel definition
 {
-    Player1Ship player1Ship = new Player1Ship();
+    Player1Ship player1Ship = new Player1Ship(null);
     public PanDisp() {
         
     }
