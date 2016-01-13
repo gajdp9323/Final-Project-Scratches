@@ -44,7 +44,7 @@ public class Shoot {
     public void BulletUp(){
         while (nY>0) {
             if (nY>(nYE+90) && nY<(nYE+90)) {
-                return true;
+                
             }
             this.nY=-2;
             paint(null);

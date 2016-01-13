@@ -24,6 +24,7 @@ class KeyListenerTester extends JFrame implements KeyListener {
     
     public KeyListenerTester(String s) {
         JPanel p = new JPanel();
+        setTitle(s);
         label = new JLabel("Key Listener!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p.add(label);
@@ -45,20 +46,20 @@ class KeyListenerTester extends JFrame implements KeyListener {
         nX1BulletUP = nX1; nY1BulletUP = nY1; nX1BulletSIDE = nX1; nY1BulletSIDE = nY1; nX2BulletSIDE = nX2; nY2BulletSIDE = nY2; nX2BulletUP = nX2; nY2BulletUP = nY2;
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             //System.out.println("Right key pressed");   //debug code
-            nLastDirection1 = 4;
+            nLastDirection1 = 2;
             nX1 +=1; //to move right
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             //System.out.println("Left key pressed");
             nX1 -=1; //to move left
-            nLastDirection1 = 2;
+            nLastDirection1 = 4;
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             //System.out.println("Up key pressed");
             nY1 -=1; //to move up
-            nLastDirection1 = 4;
+            nLastDirection1 = 1;
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -69,7 +70,7 @@ class KeyListenerTester extends JFrame implements KeyListener {
         }
         if (e.getKeyCode() == KeyEvent.VK_M) {
             //System.out.println("Right key pressed");   //debug code
-            Shoot(nX1, nY1, nLastDirection2, nX2, nY2); //to move right
+            Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //to move right
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
@@ -199,7 +200,7 @@ class KeyListenerTester extends JFrame implements KeyListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void paint(Graphics g) {
-        System.out.println(g); //g = sun.java2d.SunGraphics2D[font=java.awt.Font[family=Dialog,name=Dialog,style=plain,size=12],color=java.awt.Color[r=0,g=0,b=0]]
+        //System.out.println(g); //g = sun.java2d.SunGraphics2D[font=java.awt.Font[family=Dialog,name=Dialog,style=plain,size=12],color=java.awt.Color[r=0,g=0,b=0]]
         int nWidth1 = imgPlayer1.getWidth(rootPane)/2, nWidth2 = imgPlayer2.getWidth(rootPane)/2;
         int nHeight1 = imgPlayer1.getHeight(rootPane)/2, nHeight2 = imgPlayer2.getHeight(rootPane)/2;
         int nBWUp = imgBulletUp.getWidth(rootPane)/2, nBWSide = imgBulletSide.getWidth(rootPane)/2;
@@ -225,50 +226,113 @@ class KeyListenerTester extends JFrame implements KeyListener {
     public void Shoot(int nX, int nY, int nDirection, int nXE, int nYE) {
         System.out.println("Hi");
         if (nX == nX1 && nY == nY1) {
+            System.out.println("Bonjour");
             if (nDirection == 1) {
                 while (nY1BulletUP>0) {
-                    nY1BulletUP-=5;
-                    System.out.println("1Not working");
-                }
-            }
-            else if (nDirection == 3) {
-                while (nY1BulletUP<1000) {
-                    nY1BulletUP+=5;
-                    System.out.println("2Not working");
+                    if (nY1BulletUP>nYE && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    System.out.println("Hi");
+                    nY1BulletUP-=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("1Not working");
                 }
             }
             if (nDirection == 2) {
                 while (nX1BulletSIDE<1000) {
-                    nX1BulletSIDE+=5;
-                    System.out.println("3Not working");
+                    if (nY1BulletUP>(nYE) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nX1BulletSIDE+=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("2Not working");
                 }
             }
-            else if (nDirection == 4) {
+            if (nDirection == 3) {
+                while (nY1BulletUP<1000) {
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nY1BulletUP+=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("3Not working");
+                }
+            }
+            if (nDirection == 4) {
                 while (nX1BulletSIDE>0) {
-                    nX1BulletSIDE-=5;
-                    System.out.println("4Not working");
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nX1BulletSIDE-=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("4Not working");
                 }
             }
         }
         else if (nX == nX2 && nY == nY2) {
+            System.out.println("Salut");
             if (nDirection == 1) {
                 while (nY2BulletUP>0) {
-                    nY2BulletUP-=5;
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nY2BulletUP-=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("5Not working");
                 }
             }
-            else if (nDirection == 3) {
-                while (nY2BulletUP<1000) {
-                    nY2BulletUP+=5;
-                }
-            }
-            else if (nDirection == 2) {
+            if (nDirection == 2) {
                 while (nX2BulletSIDE<1000) {
-                    nX2BulletSIDE+=5;
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nX2BulletSIDE+=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("6Not working");
                 }
             }
-            else if (nDirection == 4) {
+            if (nDirection == 3) {
+                while (nY2BulletUP<1000) {
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nY2BulletUP+=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("7Not working");
+                }
+            }
+            if (nDirection == 4) {
                 while (nX2BulletSIDE>0) {
-                    nX2BulletSIDE-=5;
+                    if (nY1BulletUP>(nYE+90) && nY1BulletUP<(nYE+90)) {
+                        nScore+=10000;
+                        System.out.println("Winner");
+                        break;
+                    }
+                    nX2BulletSIDE-=2;
+                    revalidate();
+                    repaint();
+                    //System.out.println("8Not working");
                 }
             }
         }
