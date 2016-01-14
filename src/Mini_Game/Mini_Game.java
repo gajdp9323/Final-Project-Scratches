@@ -1,6 +1,7 @@
 package Mini_Game;
-//Purpose of code is to sample movement and make score increase when certain conditions are met
+//Purpose of code is to create a small mingame if main game doesn't work how we want it to
 //Philip G
+
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,23 +9,23 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.Font;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-class Mini_Game extends JFrame implements KeyListener {
+class Minigame extends JFrame implements KeyListener {
     Image imgPlayer1 = Toolkit.getDefaultToolkit().createImage("Player1.png");
     Image imgPlayer2 = Toolkit.getDefaultToolkit().createImage("Player2.png");
     Image imgBulletUp = Toolkit.getDefaultToolkit().createImage("BulletUp.png");
     Image imgBulletSide = Toolkit.getDefaultToolkit().createImage("BulletSide.png");
     Image imgBack = Toolkit.getDefaultToolkit().createImage("background.jpg");
     JLabel label;
-    static int nX1 = 300, nY1 = 300, nX2 = 100, nY2 = 100, nScore1 = 0, nScore2 = 0, nLastDirection1 = 1, nLastDirection2 = 1, nLooping=1;
+    static int nX1 = 500, nY1 = 300, nX2 = 100, nY2 = 100, nScore1 = 0, nScore2 = 0, nLastDirection1 = 1, nLastDirection2 = 1, nLooping=1;
     static int nX1BulletUP = nX1, nY1BulletUP = nY1, nX1BulletSIDE = nX1, nY1BulletSIDE = nY1, nX2BulletSIDE = nX2, nY2BulletSIDE = nY2, nX2BulletUP = nX2, nY2BulletUP = nY2;
     static int nShootX, nShootY, nShootDirect, nShootXE, nShootYE;
     //static int nX1Temp = nX1, nX2Temp = nX2, nY1Temp = nY1, nY2Temp = nY2;
-    public Mini_Game(String s) {
+    public Minigame(String s) {
         JPanel p = new JPanel();
         setTitle(s);
         label = new JLabel("Key Listener!");
@@ -32,8 +33,8 @@ class Mini_Game extends JFrame implements KeyListener {
         p.add(label);
         add(p);
         addKeyListener(this);
-        setSize(400, 400);
-        setMinimumSize(new Dimension(400, 400));
+        setSize(640, 360);
+        setMinimumSize(new Dimension(640, 360));
         setVisible(true);
 
     }
@@ -314,6 +315,6 @@ class Mini_Game extends JFrame implements KeyListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        new Mini_Game("Key Listener Tester");
+        new Minigame("Key Listener Tester");
     }
 }
