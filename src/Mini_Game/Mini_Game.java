@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-class Minigame extends JFrame implements KeyListener {
+class Mini_Game extends JFrame implements KeyListener {
     Image imgPlayer1 = Toolkit.getDefaultToolkit().createImage("Player1.png");
     Image imgPlayer2 = Toolkit.getDefaultToolkit().createImage("Player2.png");
     Image imgBulletUp = Toolkit.getDefaultToolkit().createImage("BulletUp.png");
@@ -25,7 +25,7 @@ class Minigame extends JFrame implements KeyListener {
     static int nX1BulletUP = nX1, nY1BulletUP = nY1, nX1BulletSIDE = nX1, nY1BulletSIDE = nY1, nX2BulletSIDE = nX2, nY2BulletSIDE = nY2, nX2BulletUP = nX2, nY2BulletUP = nY2;
     static int nShootX, nShootY, nShootDirect, nShootXE, nShootYE;
     //static int nX1Temp = nX1, nX2Temp = nX2, nY1Temp = nY1, nY2Temp = nY2;
-    public Minigame(String s) {
+    public Mini_Game(String s) {
         JPanel p = new JPanel();
         setTitle(s);
         label = new JLabel("Key Listener!");
@@ -315,6 +315,6 @@ class Minigame extends JFrame implements KeyListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        new Minigame("Key Listener Tester");
+        new Mini_Game("Key Listener Tester");
     }
 }
