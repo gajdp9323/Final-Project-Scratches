@@ -180,9 +180,9 @@ class KeyListenerTester extends JFrame implements KeyListener {
         g.fillRect (nX2, nY2, 5, 5);*/
         g.drawImage(imgBulletUp, nX1BulletUP-nBWUp, nY1BulletUP-nBHUp, null);
         g.drawImage(imgBulletSide, nX1BulletSIDE-nBWSide, nY1BulletSIDE-nBHSide, null);
-        g.drawImage(imgPlayer1, nX1-nWidth1, nY1-nHeight1, null);
         g.drawImage(imgBulletUp, nX2BulletUP-nBWUp, nY2BulletUP-nBHUp, null);
         g.drawImage(imgBulletSide, nX2BulletSIDE-nBWSide, nY2BulletSIDE-nBHSide, null);
+        g.drawImage(imgPlayer1, nX1-nWidth1, nY1-nHeight1, null);
         g.drawImage(imgPlayer2, nX2-nWidth2, nY2-nHeight2, null);
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

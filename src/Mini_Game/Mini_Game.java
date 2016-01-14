@@ -18,6 +18,7 @@ class Mini_Game extends JFrame implements KeyListener {
     Image imgPlayer2 = Toolkit.getDefaultToolkit().createImage("Player2.png");
     Image imgBulletUp = Toolkit.getDefaultToolkit().createImage("BulletUp.png");
     Image imgBulletSide = Toolkit.getDefaultToolkit().createImage("BulletSide.png");
+    Image imgBack = Toolkit.getDefaultToolkit().createImage("background.jpg");
     JLabel label;
     static int nX1 = 300, nY1 = 300, nX2 = 100, nY2 = 100, nScore1 = 0, nScore2 = 0, nLastDirection1 = 1, nLastDirection2 = 1, nLooping=1;
     static int nX1BulletUP = nX1, nY1BulletUP = nY1, nX1BulletSIDE = nX1, nY1BulletSIDE = nY1, nX2BulletSIDE = nX2, nY2BulletSIDE = nY2, nX2BulletUP = nX2, nY2BulletUP = nY2;
@@ -178,8 +179,7 @@ class Mini_Game extends JFrame implements KeyListener {
         int nBHUp = imgBulletUp.getHeight(rootPane)/2, nBHSide = imgBulletSide.getHeight(rootPane)/2;
         revalidate();
         repaint();
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 2000, 2000);
+        g.drawImage(imgBack, -400, -400, null);
         /*g.setColor(Color.RED);    //images work now
         g.fillRect (nX1, nY1, 5, 5);
         g.setColor(Color.BLUE);
