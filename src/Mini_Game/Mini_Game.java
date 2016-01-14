@@ -72,7 +72,7 @@ class Mini_Game extends JFrame implements KeyListener {
             }
             if (e.getKeyCode() == KeyEvent.VK_M) {
                 //System.out.println("Right key pressed");   //debug code
-                Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //to move right
+                Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //call shoot class
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_W) {
@@ -101,7 +101,7 @@ class Mini_Game extends JFrame implements KeyListener {
             }
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 //System.out.println("Right key pressed");   //debug code
-                Shoot(nX2, nY2, nLastDirection2, nX1, nY1); //to move right
+                Shoot(nX2, nY2, nLastDirection2, nX1, nY1); //call shoot class
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
             }
         }
@@ -230,7 +230,6 @@ class Mini_Game extends JFrame implements KeyListener {
                 }
                 nX1BulletSIDE+=1;
                     //System.out.println("2Not working");
-                }
             }
             if (nDirection == 3) {
                 if (nY1BulletUP>1000) {
@@ -256,6 +255,7 @@ class Mini_Game extends JFrame implements KeyListener {
                 nX1BulletSIDE-=1;
                 //System.out.println("4Not working");
             }
+        }
         else if (nX == nX2 && nY == nY2) {
             //System.out.println("Salut");
             if (nDirection == 1) {
@@ -283,6 +283,7 @@ class Mini_Game extends JFrame implements KeyListener {
                 //System.out.println("6Not working");
             }
             if (nDirection == 3) {
+                System.out.println("Bad3");
                 if (nY2BulletUP>1000) {
                     nLooping=1;
                 }
@@ -295,6 +296,7 @@ class Mini_Game extends JFrame implements KeyListener {
                 //System.out.println("7Not working");
             }
             if (nDirection == 4) {
+                System.out.println("Bad4");
                 if (nX2BulletSIDE<0) {
                     nLooping=1;
                 }
