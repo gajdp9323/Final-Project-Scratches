@@ -21,6 +21,7 @@ class Mini_Game extends JFrame implements KeyListener {
     JLabel label;
     static int nX1 = 300, nY1 = 300, nX2 = 100, nY2 = 100, nScore1 = 0, nScore2 = 0, nLastDirection1 = 1, nLastDirection2 = 1, nLooping=1;
     static int nX1BulletUP = nX1, nY1BulletUP = nY1, nX1BulletSIDE = nX1, nY1BulletSIDE = nY1, nX2BulletSIDE = nX2, nY2BulletSIDE = nY2, nX2BulletUP = nX2, nY2BulletUP = nY2;
+    static int nShootX, nShootY, nShootDirect, nShootXE, nShootYE;
     //static int nX1Temp = nX1, nX2Temp = nX2, nY1Temp = nY1, nY2Temp = nY2;
     public Mini_Game(String s) {
         JPanel p = new JPanel();
@@ -43,64 +44,69 @@ class Mini_Game extends JFrame implements KeyListener {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void keyPressed(KeyEvent e) {
-        nX1BulletUP = nX1; nY1BulletUP = nY1; nX1BulletSIDE = nX1; nY1BulletSIDE = nY1; nX2BulletSIDE = nX2; nY2BulletSIDE = nY2; nX2BulletUP = nX2; nY2BulletUP = nY2;
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            //System.out.println("Right key pressed");   //debug code
-            nLastDirection1 = 2;
-            nX1 +=2; //to move right
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+        if (nLooping==1) {
+            nX1BulletUP = nX1; nY1BulletUP = nY1; nX1BulletSIDE = nX1; nY1BulletSIDE = nY1; nX2BulletSIDE = nX2; nY2BulletSIDE = nY2; nX2BulletUP = nX2; nY2BulletUP = nY2;
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                //System.out.println("Right key pressed");   //debug code
+                nLastDirection1 = 2;
+                nX1 +=2; //to move right
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                //System.out.println("Left key pressed");
+                nX1 -=2; //to move left
+                nLastDirection1 = 4;
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                //System.out.println("Up key pressed");
+                nY1 -=2; //to move up
+                nLastDirection1 = 1;
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                //System.out.println("Down key pressed");
+                nY1 +=2; //to move down
+                nLastDirection1 = 3;
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_M) {
+                //System.out.println("Right key pressed");   //debug code
+                Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //to move right
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_W) {
+                //System.out.println("W key pressed");
+                nY2 -=2; //to move up
+                nLastDirection2 = 1;
+                //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_A) {
+                //System.out.println("A key pressed");
+                nX2 -=2; //to move right
+                nLastDirection2 = 4;
+                //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_S) {
+                //System.out.println("S key pressed");
+                nY2 +=2; //to move down
+                nLastDirection2 = 3;
+                //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_D) {
+                //System.out.println("D key pressed");
+                nX2 +=2; //to move left
+                nLastDirection2 = 2;
+                //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
+            }
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                //System.out.println("Right key pressed");   //debug code
+                Shoot(nX2, nY2, nLastDirection2, nX1, nY1); //to move right
+                //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+            }
         }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            //System.out.println("Left key pressed");
-            nX1 -=2; //to move left
-            nLastDirection1 = 4;
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            //System.out.println("Up key pressed");
-            nY1 -=2; //to move up
-            nLastDirection1 = 1;
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            //System.out.println("Down key pressed");
-            nY1 +=2; //to move down
-            nLastDirection1 = 3;
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_M) {
-            //System.out.println("Right key pressed");   //debug code
-            Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //to move right
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            //System.out.println("W key pressed");
-            nY2 -=2; //to move up
-            nLastDirection2 = 1;
-            //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            //System.out.println("A key pressed");
-            nX2 -=2; //to move right
-            nLastDirection2 = 4;
-            //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_S) {
-            //System.out.println("S key pressed");
-            nY2 +=2; //to move down
-            nLastDirection2 = 3;
-            //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_D) {
-            //System.out.println("D key pressed");
-            nX2 +=2; //to move left
-            nLastDirection2 = 2;
-            //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
-        }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            //System.out.println("Right key pressed");   //debug code
-            Shoot(nX2, nY2, nLastDirection2, nX1, nY1); //to move right
-            //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
+        else {
+            Shoot(nShootX, nShootY, nShootDirect, nShootXE, nShootYE);
         }
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,12 +190,20 @@ class Mini_Game extends JFrame implements KeyListener {
         g.drawImage(imgBulletUp, nX2BulletUP-nBWUp, nY2BulletUP-nBHUp, null);
         g.drawImage(imgBulletSide, nX2BulletSIDE-nBWSide, nY2BulletSIDE-nBHSide, null);
         g.drawImage(imgPlayer2, nX2-nWidth2, nY2-nHeight2, null);
+        if (nLooping == 0) {
+            Shoot(nShootX, nShootY, nShootDirect, nShootXE, nShootYE);
+        }
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void Shoot(int nX, int nY, int nDirection, int nXE, int nYE) {
         //System.out.println("Hi");
+        nShootX = nX;
+        nShootY = nY;
+        nShootDirect = nDirection;
+        nShootXE = nXE;
+        nShootYE = nYE;
         nLooping=0;
         if (nX == nX1 && nY == nY1) {
             //System.out.println("Bonjour");
@@ -197,107 +211,100 @@ class Mini_Game extends JFrame implements KeyListener {
                 if (nY1BulletUP<0) {
                     nLooping=1;
                 }
-                if (nY1BulletUP>(nYE-10) && nY1BulletUP<(nYE+10) && nX1BulletUP>(nXE-10)&& nX1BulletUP<(nXE+10)) {
+                else if (nY1BulletUP>(nYE-15) && nY1BulletUP<(nYE+15) && nX1BulletUP>(nXE-15)&& nX1BulletUP<(nXE+15)) {
                     nScore1+=10000;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nY1BulletUP-=2;
+                nY1BulletUP-=1;
                     //System.out.println("1Not working");
             }
             if (nDirection == 2) {
                 if (nX1BulletSIDE>1000) {
                     nLooping=1;
                 }
-                if (nY1BulletSIDE>(nYE-10) && nY1BulletSIDE<(nYE+10) && nX1BulletSIDE>(nXE-10)&& nX1BulletSIDE<(nXE+10)) {
+                else if (nY1BulletSIDE>(nYE-15) && nY1BulletSIDE<(nYE+15) && nX1BulletSIDE>(nXE-15)&& nX1BulletSIDE<(nXE+15)) {
                     nScore1+=10000;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nX1BulletSIDE+=2;
+                nX1BulletSIDE+=1;
                     //System.out.println("2Not working");
                 }
             }
             if (nDirection == 3) {
-                while (nY1BulletUP<1000) {
-                    if (nY1BulletUP>(nYE-10) && nY1BulletUP<(nYE+10) && nX1BulletUP>(nXE-10)&& nX1BulletUP<(nXE+10)) {
-                        nScore1+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nY1BulletUP+=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("3Not working");
+                if (nY1BulletUP>1000) {
+                    nLooping=1;
                 }
+                else if (nY1BulletUP>(nYE-15) && nY1BulletUP<(nYE+15) && nX1BulletUP>(nXE-15)&& nX1BulletUP<(nXE+15)) {
+                    nScore1+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nY1BulletUP+=1;
+                //System.out.println("3Not working");
             }
             if (nDirection == 4) {
-                while (nX1BulletSIDE>0) {
-                    if (nY1BulletSIDE>(nYE-10) && nY1BulletSIDE<(nYE+10) && nX1BulletSIDE>(nXE-10)&& nX1BulletSIDE<(nXE+10)) {
-                        nScore1+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nX1BulletSIDE-=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("4Not working");
+                if (nX1BulletSIDE<0) {
+                    nLooping=1;
                 }
+                else if (nY1BulletSIDE>(nYE-15) && nY1BulletSIDE<(nYE+15) && nX1BulletSIDE>(nXE-15)&& nX1BulletSIDE<(nXE+15)) {
+                    nScore1+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nX1BulletSIDE-=1;
+                //System.out.println("4Not working");
             }
-        }
         else if (nX == nX2 && nY == nY2) {
             //System.out.println("Salut");
             if (nDirection == 1) {
-                while (nY2BulletUP>0) {
-                    if (nY2BulletUP>(nYE-10) && nY2BulletUP<(nYE+10) && nX2BulletSIDE>(nXE-10)&& nX2BulletSIDE<(nXE+10)) {
-                        nScore2+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nY2BulletUP-=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("5Not working");
+                if (nY2BulletUP<0) {
+                    nLooping=1;
                 }
+                else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
+                    nScore2+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nY2BulletUP-=1;
+                //System.out.println("5Not working");
             }
             if (nDirection == 2) {
-                while (nX2BulletSIDE<1000) {
-                    if (nY2BulletUP>(nYE-10) && nY2BulletUP<(nYE+10) && nX2BulletSIDE>(nXE-10)&& nX2BulletSIDE<(nXE+10)) {
-                        nScore2+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nX2BulletSIDE+=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("6Not working");
+                if (nX2BulletSIDE>1000) {
+                    nLooping=1;
                 }
+                else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
+                    nScore2+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nX2BulletSIDE+=1;
+                //System.out.println("6Not working");
             }
             if (nDirection == 3) {
-                while (nY2BulletUP<1000) {
-                    if (nY2BulletUP>(nYE-10) && nY2BulletUP<(nYE+10) && nX2BulletSIDE>(nXE-10)&& nX2BulletSIDE<(nXE+10)) {
-                        nScore2+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nY2BulletUP+=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("7Not working");
+                if (nY2BulletUP>1000) {
+                    nLooping=1;
                 }
+                else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
+                    nScore2+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nY2BulletUP+=1;
+                //System.out.println("7Not working");
             }
             if (nDirection == 4) {
-                while (nX2BulletSIDE>0) {
-                    if (nY2BulletUP>(nYE-10) && nY2BulletUP<(nYE+10) && nX2BulletSIDE>(nXE-10)&& nX2BulletSIDE<(nXE+10)) {
-                        nScore2+=10000;
-                        System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
-                        break;
-                    }
-                    nX2BulletSIDE-=2;
-                    revalidate();
-                    repaint();
-                    //System.out.println("8Not working");
+                if (nX2BulletSIDE<0) {
+                    nLooping=1;
                 }
+                else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
+                    nScore2+=10000;
+                    System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
+                    nLooping=1;
+                }
+                nX2BulletSIDE-=1;
+                //System.out.println("8Not working");
             }
         }
     }
