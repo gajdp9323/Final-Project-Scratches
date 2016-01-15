@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.Graphics;
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -213,11 +213,11 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY1BulletUP>(nYE-15) && nY1BulletUP<(nYE+15) && nX1BulletUP>(nXE-15)&& nX1BulletUP<(nXE+15)) {
-                    nScore1+=10000;
+                    nScore1+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nY1BulletUP-=1;
+                nY1BulletUP-=2;
                     //System.out.println("1Not working");
             }
             if (nDirection == 2) {
@@ -225,11 +225,11 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY1BulletSIDE>(nYE-15) && nY1BulletSIDE<(nYE+15) && nX1BulletSIDE>(nXE-15)&& nX1BulletSIDE<(nXE+15)) {
-                    nScore1+=10000;
+                    nScore1+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nX1BulletSIDE+=1;
+                nX1BulletSIDE+=2;
                     //System.out.println("2Not working");
             }
             if (nDirection == 3) {
@@ -237,11 +237,11 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY1BulletUP>(nYE-15) && nY1BulletUP<(nYE+15) && nX1BulletUP>(nXE-15)&& nX1BulletUP<(nXE+15)) {
-                    nScore1+=10000;
+                    nScore1+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nY1BulletUP+=1;
+                nY1BulletUP+=2;
                 //System.out.println("3Not working");
             }
             if (nDirection == 4) {
@@ -249,11 +249,11 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY1BulletSIDE>(nYE-15) && nY1BulletSIDE<(nYE+15) && nX1BulletSIDE>(nXE-15)&& nX1BulletSIDE<(nXE+15)) {
-                    nScore1+=10000;
+                    nScore1+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nX1BulletSIDE-=1;
+                nX1BulletSIDE-=2;
                 //System.out.println("4Not working");
             }
         }
@@ -264,11 +264,11 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
-                    nScore2+=10000;
+                    nScore2+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nY2BulletUP-=1;
+                nY2BulletUP-=2;
                 //System.out.println("5Not working");
             }
             if (nDirection == 2) {
@@ -276,37 +276,37 @@ class Mini_Game extends JFrame implements KeyListener {
                     nLooping=1;
                 }
                 else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
-                    nScore2+=10000;
+                    nScore2+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nX2BulletSIDE+=1;
+                nX2BulletSIDE+=2;
                 //System.out.println("6Not working");
             }
             if (nDirection == 3) {
-                System.out.println("Bad3");
+                //System.out.println("Bad3");
                 if (nY2BulletUP>1000) {
                     nLooping=1;
                 }
                 else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
-                    nScore2+=10000;
+                    nScore2+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nY2BulletUP+=1;
+                nY2BulletUP+=2;
                 //System.out.println("7Not working");
             }
             if (nDirection == 4) {
-                System.out.println("Bad4");
+                //System.out.println("Bad4");
                 if (nX2BulletSIDE<0) {
                     nLooping=1;
                 }
                 else if (nY2BulletUP>(nYE-15) && nY2BulletUP<(nYE+15) && nX2BulletSIDE>(nXE-15)&& nX2BulletSIDE<(nXE+15)) {
-                    nScore2+=10000;
+                    nScore2+=5;
                     System.out.println("Player1 Score: " + nScore1 + "  Player2 Score: " + nScore2);
                     nLooping=1;
                 }
-                nX2BulletSIDE-=1;
+                nX2BulletSIDE-=2;
                 //System.out.println("8Not working");
             }
         }
@@ -315,6 +315,6 @@ class Mini_Game extends JFrame implements KeyListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        new Mini_Game("Key Listener Tester");
+        new Mini_Game("Space Wars: Tug a War");
     }
 }
