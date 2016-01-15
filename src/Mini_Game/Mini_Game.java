@@ -15,8 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 class Mini_Game extends JFrame implements KeyListener {
-    Image imgPlayer1 = Toolkit.getDefaultToolkit().createImage("Player1.png");
-    Image imgPlayer2 = Toolkit.getDefaultToolkit().createImage("Player2.png");
+    Image imgPlayer1 = Toolkit.getDefaultToolkit().createImage("JavaShipP1Up.png");
+    Image imgPlayer2 = Toolkit.getDefaultToolkit().createImage("JavaShipP2Up.png");
     Image imgBulletUp = Toolkit.getDefaultToolkit().createImage("BulletUp.png");
     Image imgBulletSide = Toolkit.getDefaultToolkit().createImage("BulletSide.png");
     Image imgBack = Toolkit.getDefaultToolkit().createImage("background.jpg");
@@ -50,24 +50,28 @@ class Mini_Game extends JFrame implements KeyListener {
             nX1BulletUP = nX1; nY1BulletUP = nY1; nX1BulletSIDE = nX1; nY1BulletSIDE = nY1; nX2BulletSIDE = nX2; nY2BulletSIDE = nY2; nX2BulletUP = nX2; nY2BulletUP = nY2;
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 //System.out.println("Right key pressed");   //debug code
+                imgPlayer1 = Toolkit.getDefaultToolkit().createImage("JavaShipP1Right.png");
                 nLastDirection1 = 2;
                 nX1 +=2; //to move right
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 //System.out.println("Left key pressed");
+                imgPlayer1 = Toolkit.getDefaultToolkit().createImage("JavaShipP1Left.png");
                 nX1 -=2; //to move left
                 nLastDirection1 = 4;
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_UP) {
                 //System.out.println("Up key pressed");
+                imgPlayer1 = Toolkit.getDefaultToolkit().createImage("JavaShipP1Up.png");
                 nY1 -=2; //to move up
                 nLastDirection1 = 1;
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                 //System.out.println("Down key pressed");
+                imgPlayer1 = Toolkit.getDefaultToolkit().createImage("JavaShipP1Down.png");
                 nY1 +=2; //to move down
                 nLastDirection1 = 3;
                 //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
@@ -79,24 +83,28 @@ class Mini_Game extends JFrame implements KeyListener {
             }
             if (e.getKeyCode() == KeyEvent.VK_W) {
                 //System.out.println("W key pressed");
+                imgPlayer2 = Toolkit.getDefaultToolkit().createImage("JavaShipP2Up.png");
                 nY2 -=2; //to move up
                 nLastDirection2 = 1;
                 //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_A) {
                 //System.out.println("A key pressed");
+                imgPlayer2 = Toolkit.getDefaultToolkit().createImage("JavaShipP2Left.png");
                 nX2 -=2; //to move right
                 nLastDirection2 = 4;
                 //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_S) {
                 //System.out.println("S key pressed");
+                imgPlayer2 = Toolkit.getDefaultToolkit().createImage("JavaShipP2Down.png");
                 nY2 +=2; //to move down
                 nLastDirection2 = 3;
                 //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
             }
             if (e.getKeyCode() == KeyEvent.VK_D) {
                 //System.out.println("D key pressed");
+                imgPlayer2 = Toolkit.getDefaultToolkit().createImage("JavaShipP2Right.png");
                 nX2 +=2; //to move left
                 nLastDirection2 = 2;
                 //System.out.println("Object 2 at (" + nX2 + ", " + nY2 + ")");
