@@ -1,4 +1,4 @@
-package Minigame_Final_Version;
+package Mini_Game;
 //Purpose of code is to create a small mingame if main game doesn't work how we want it to
 //Philip G
 
@@ -58,35 +58,37 @@ class Minigame extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         revalidate();
         repaint();
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            isRight=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            isLeft=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            isUp=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            isDown=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_M) {
-            isM=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            isW=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_S) {
-            isS=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            isA=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_D) {
-            isD=true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            isSpace=true;
+        if (isSpace==false || isM==false) {
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                isRight=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                isLeft=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                isUp=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                isDown=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_M) {
+                isM=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_W) {
+                isW=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_S) {
+                isS=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_A) {
+                isA=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_D) {
+                isD=true;
+            }
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                isSpace=true;
+            }
         }
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,7 +295,7 @@ class Minigame extends JFrame implements KeyListener {
             Shoot(nX1, nY1, nLastDirection1, nX2, nY2); //call shoot class
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
         }
-        else if (isSpace==true) {
+        if (isSpace==true) {
             //System.out.println("Right key pressed");   //debug code
             Shoot(nX2, nY2, nLastDirection2, nX1, nY1); //call shoot class
             //System.out.println("Object 1 at (" + nX1 + ", " + nY1 + ")");
